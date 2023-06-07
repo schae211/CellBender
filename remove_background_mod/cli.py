@@ -1,10 +1,9 @@
 """Command-line tool functionality for remove-background."""
 
 import torch
-from cellbender.remove_background.data.dataset import SingleCellRNACountsDataset
-from cellbender.remove_background.train import run_inference
-from cellbender.base_cli import AbstractCLI
-from cellbender.remove_background import consts
+from dataset import SingleCellRNACountsDataset
+from train import run_inference
+from consts import consts
 
 import logging
 import os

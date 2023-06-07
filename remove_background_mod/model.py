@@ -11,14 +11,12 @@ import pyro.distributions as dist
 from pyro.infer import config_enumerate
 import pyro.poutine as poutine
 
-from cellbender.remove_background.vae import encoder as encoder_module
-import cellbender.remove_background.consts as consts
-from cellbender.remove_background.distributions.NegativeBinomialPoissonConv \
-    import NegativeBinomialPoissonConv as NBPC
-from cellbender.remove_background.distributions.NegativeBinomialPoissonConvApprox \
-    import NegativeBinomialPoissonConvApprox as NBPCapprox
-from cellbender.remove_background.distributions.NullDist import NullDist
-from cellbender.remove_background.exceptions import NanException
+import encoder as encoder_module
+import consts as consts
+from NegativeBinomialPoissonConv import NegativeBinomialPoissonConv as NBPC
+from NegativeBinomialPoissonConvApprox import NegativeBinomialPoissonConvApprox as NBPCapprox
+from NullDist import NullDist
+from exceptions import NanException
 
 from typing import Optional, Union
 from numbers import Number
@@ -105,8 +103,7 @@ class RemoveBackgroundPyroModel(nn.Module):
 
         self.d_cell_scale_prior = (torch.tensor(consts.D_STD_PRIOR).to(self.device))
         self.z_loc_prior = torch.zeros(torch.Size([self.z_dim])).to(self.device)
-        self.z_scale_prior = torch.ones(torch.Size([self.z_dim]))\
-            .to(self.device)
+        self.z_scale_prior = torch.ones(torch.Size([self.z_dim])).to(self.device)
         self.epsilon_prior = torch.tensor(consts.EPSILON_PRIOR).to(self.device)
 
         self.phi_loc_prior = (phi_loc_prior

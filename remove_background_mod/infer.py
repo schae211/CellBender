@@ -10,7 +10,7 @@ import pyro.distributions as dist
 import scipy.sparse as sp
 import torch
 
-import cellbender.remove_background.consts as consts
+import consts as consts
 
 
 class Posterior(ABC):

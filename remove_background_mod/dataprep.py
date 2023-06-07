@@ -5,7 +5,7 @@ a class to implement loading data from a sparse matrix in mini-batches.
 import numpy as np
 import scipy.sparse as sp
 
-import cellbender.remove_background.consts as consts
+import consts as consts
 
 import torch
 import torch.utils.data

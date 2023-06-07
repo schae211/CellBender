@@ -6,7 +6,7 @@ from torch.distributions.distribution import Distribution
 from torch.distributions.utils import broadcast_all
 
 from numbers import Number
-from cellbender.remove_background.exceptions import NanException
+from exceptions import NanException
 
 
 class TorchNegativeBinomialPoissonConvApprox(Distribution):
